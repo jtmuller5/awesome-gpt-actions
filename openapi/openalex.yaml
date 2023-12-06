@@ -1,0 +1,64 @@
+openapi: 3.0.0
+info:
+  title: OpenAlex Search API
+  version: 1.0.0
+  description: API for searching works in the OpenAlex database.
+
+servers:
+  - url: 'https://openalex.vercel.app/api/'
+    description: Production server
+
+paths:
+  /searchWorks:
+    get:
+      summary: Search for works in OpenAlex
+      operationId: searchWorks
+      tags:
+        - Works
+      parameters:
+        - in: query
+          name: searchTerm
+          required: true
+          schema:
+            type: string
+          description: The term to search for in the works.
+        - in: query
+          name: perPage
+          required: false
+          schema:
+            type: integer
+            default: 10
+          description: Number of results to return per page.
+      responses:
+        '200':
+          description: A list of works matching the search criteria.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  works:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Work'
+        '400':
+          description: Bad request. The request was unacceptable, often due to missing a required parameter.
+        '500':
+          description: Internal server error.
+
+components:
+  schemas:
+    Work:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title of the work.
+        abstract:
+          type: string
+          description: The abstract of the work.
+        concepts:
+          type: array
+          items:
+            type: string
+          description: List of concepts associated with the work.
