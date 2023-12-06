@@ -14,4 +14,4 @@ Each of the "Action" in the table below can be added to your custom GPTs using t
 | Plugin | Description | OpenAPI Link | Privacy Policy |
 | --- | ---| ---| --- |
 | Chitter | Share and view feel good stories | [Link](https://codeontherocks.dev/openapi.yaml) | [Link](https://codeontherocks.dev/privacy-policy)|
-| OpenAlex | Let your GPT search OpenAlex | [Link](/openapi/openalex) | [Link](https://codeontherocks.dev/privacy-policy)|
+| OpenAlex | Let your GPT search OpenAlex | [Link](/openapi/openalex.yaml) | [Link](https://codeontherocks.dev/privacy-policy)|
